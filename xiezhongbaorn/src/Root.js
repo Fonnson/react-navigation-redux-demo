@@ -1,4 +1,5 @@
 import React from 'react';
+import {NativeModules} from 'react-native';
 import {Provider} from 'react-redux';
 import {applyMiddleware, createStore} from 'redux';
 
