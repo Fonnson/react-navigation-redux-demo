@@ -11,4 +11,6 @@ react-navigation包含三大块:StackNavigator、TabNavigator、DrawerNavigator�
 
 目前只使用了StackNavigator,进行页面跳转。  
 
-下一步计划，集成TabNavigator，实现底部标签栏切换页面。  
+集成TabNavigator，实现底部标签栏切换页面。  
+
+使用DrawerLayoutAndroid实现侧边栏。
