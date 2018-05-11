@@ -1,22 +1,31 @@
 import React from 'react';
 import {BackHandler} from 'react-native';
-import PropTypes from 'prop-types';
+import {PropTypes} from 'prop-types';
 import {connect} from 'react-redux';
-import {StackNavigator,NavigationActions,TabNavigator,DrawerNavigator} from 'react-navigation';
-
-import LoginScreen from '../components/LoginScreen';
-import MainScreen from '../components/MainScreen';
-import ProfileScreen from '../components/ProfileScreen';
+import {NavigationActions, StackNavigator,} from 'react-navigation';
+import Interpolator from "react-navigation/src/views/StackView/StackViewStyleInterpolator";
+import LoginPage from '../components/LoginPage';
+import ProfilePage from '../components/ProfilePage';
 import {addListener} from '../utils/redux';
+import AppDrawerLayout from './AppDrawerLayout'
 
+
+/**
+ * 页面容器
+ */
 export const AppNavigator = StackNavigator(
     {
-        Login: {screen: LoginScreen},
-        Main: {screen: MainScreen},
-        Profile: {screen: ProfileScreen},
+        Login: {screen: LoginPage},
+        Main: {screen: AppDrawerLayout},
+        Profile: {screen: ProfilePage},
     },
     {
-        headerMode: 'none'
+        headerMode: 'none',//隐藏stackNavigator所有标题栏
+        mode: 'modal',
+        transitionConfig: () => ({
+            // 只要修改最后的forVertical就可以实现不同的动画了。
+            screenInterpolator: Interpolator.forHorizontal,
+        })
     }
 );
 

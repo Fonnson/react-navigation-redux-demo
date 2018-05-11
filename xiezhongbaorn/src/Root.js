@@ -1,5 +1,5 @@
 import React from 'react';
-import {NativeModules} from 'react-native';
+import {StatusBar, NativeModules} from 'react-native';
 import {Provider} from 'react-redux';
 import {applyMiddleware, createStore} from 'redux';
 
@@ -10,7 +10,7 @@ import thunkMiddleware from 'redux-thunk';
 
 const store = createStore(
     AppReducer,
-    applyMiddleware(...[middleware,thunkMiddleware]),
+    applyMiddleware(...[middleware, thunkMiddleware]),
 );
 
 export default class ReduxExampleApp extends React.Component {
